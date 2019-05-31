@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <title>index3add.html </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="refresh" content="11">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="../static/css/bootstrap.css.map" />
+    <script type="text/javascript" src="../js/jquery-1.7.2.js" />
+    <script type="text/javascript" src="../js/jquery.validate.js"/>
+    <script th:src="@{/js/bootstrap.js}" src="../static/js/bootstrap.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 href="http://127.0.0.1:8080/index3add/1" -->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件  -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+</head>
+</head>
+
+
+
+<body>
+<!--
+<p><a href="http://127.0.0.1:8080/index3add/1" >测试本页</a> </p>
+<p><a href="#" class="btn btn-primary" th:href="">添加商品：</a> </p>
+-->
+
+<div class="container well-lg" style="max-width: 666px;">
+
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">教程</a>
+            </div>
+            <div>
+                <p class="navbar-text">
+                    <a href="http://127.0.0.1:8080/index3add/1" >测试本页</a>
+                </p>
+            </div>
+            <div class="glyphicon-align-right" style="text-align: right">
+                <p class="navbar-text text-right">
+                    <a href="./index3input.html" th:href="@{/index3input}" class="btn-block">新增商品</a>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="page-header text-center" style="font-size: 33px;font-weight:bolder;margin-top: 11px;font-family: 隶书" >
+        商品信息大全
+    </div>
+
+
+    <table class="table table-bordered table-striped table-striped table-hover">
+        <!--<caption class="caption"><span>" ${pageContext.request.contextPath} " </span></caption>-->
+        <caption class="text-center"><span> ${pageContext.request.contextPath}  </span></caption>
+        <thead>
+        <tr >
+            <th>序号even</th>
+            <th>序号index</th>
+            <th>序号count</th>
+            <th>序号size</th>
+            <th>ID</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>描述</th>
+            <th>状态status</th>
+            <th class="text-nowrap" > 状态转换</th>
+        </tr>
+        </thead>
+        <!--<th class="text-nowrap" href="http://127.0.0.1:8080/index3add/1" >状态转换</th>-->
+        <tbody>
+        <!--<tr th:each="book:${bookList}">-->
+        <!--<tr th:each="book,iterStat:${bookList}" th:class="${iterStat.even}?'bg-sucess':'bg-danger'">-->
+        <tr th:each="book,iterStat:${bookList}">
+            <td class="bg-warning"><span th:text="${iterStat.even}"> 000 </span></td>
+            <td><span th:text="${iterStat.index}"> 000 </span></td>
+            <td><span th:text="${iterStat.count}"> 000 </span></td>
+            <td><span th:text="${iterStat.size}"> 000 </span></td>
+            <td><span th:text="${book.id}">id</span></td>
+            <td><span th:text="${book.name}">名字name</span></td>
+            <td><span th:text="${book.author}">作者author</span></td>
+            <td><span th:text="${book.descriptuion}">descriptuion</span></td>
+            <td><span th:text="${book.status}">状态status</span></td>
+            <td><span th:switch="${book.status}">
+            <a href="#" th:href="@{/index6ione/{id}(id=${book.id})}">{改}
+          <span th:case="0">是0</span>
+          <span th:case="1">是1</span>
+          <span th:case="3">是3</span>
+          <span th:case="2">是2</span>
+          <span th:case="9">是9</span>
+          <span th:case="*">无知</span>
+            </a>
+        </span></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+
+<!--
+
+@GetMapping("/index3add/{author}")
+//  get  http://127.0.0.1:8080/index3add/a
+public String index3add(@PathVariable String author,Model model){
+List<Book> bookList= null;
+    try {
+    bookList = bookService.findByAuthorContains(author);
+    } catch (Exception e) {
+    e.printStackTrace();
+    }
+    System.out.println(author+"&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;"+bookList.get(1).getName());
+    model.addAttribute("bookList",bookList);
+    return "index3add";
+    }
+
+-->
+
+
+<!--
+
+<tr>
+  <td th:colspan="1" href="http://127.0.0.1:8080/books6/1">
+    状态：
+  </td>
+  <td th:colspan="4">
+      <span th:switch="*{status}">
+      <span th:case="0">是0</span>
+      <span th:case="1">是1</span>
+      <span th:case="3">是3</span>
+      <span th:case="2">是2</span>
+      <span th:case="9">是9</span>
+      <span th:case="*">是?</span>
+      </span>
+  </td>
+</tr>
+
+<tr>
+  <td th:colspan="2" href="http://127.0.0.1:8080/books6/2">
+    "*{status==2}"unless判断非2就不显示：
+  </td>
+  <td th:colspan="3">
+    <div class="alert alert-danger" th:unless="*{status==2}">
+      <strong>unless判断非2</strong>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td th:colspan="2" href="http://127.0.0.1:8080/books6/3">
+    "*{status==2}"if判断是2就显示：
+  </td>
+  <td th:colspan="3">
+    <div class="alert alert-warning" th:if="*{status==2}">
+      <strong>if判断是2</strong>
+    </div>
+  </td>
+</tr>
+
+-->

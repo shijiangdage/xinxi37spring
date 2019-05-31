@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> templates/index.html </title>
+</head>
+<body>
+
+    <h1>首aa页 templates/index.html </h1>
+    <h2> templates/index.html </h2>
+    <h2> templates/index.html </h2>
+    <h2> templates/index.html </h2>
+    <h2>
+        登陆成功,用户名：
+        <span th:text="${session.loginUser}">session.loginUser</span>
+        <!--获取session中的userName -->
+    </h2>
+    <br>
+
+    这是欢迎信息 msg ：<div th:text="${msg}">这是欢迎信息</div>    <br>
+
+    这是欢迎信息hello：<div th:text="${hello}">这是欢迎信息</div>    <br>
+
+    <hr/>
+
+    <hr/>
+
+    <p> <img src="img/qiandao201905.jpg"/></p>
+
+    <hr/>
+
+
+    <hr/>
+
+
+
+
+    <!---->
+    <!--// href=" http://127.0.0.1:8080/   "     -->
+    <!--////    href="  http://127.0.0.1:8080/login.html   "   -->
+    <!--////    href="  http://127.0.0.1:8080/index1   "   -->
+    <!--////    href="  http://127.0.0.1:8080/user/login   "   -->
+    <!--////    href="  http://127.0.0.1:8080/   "    -->
+
+</body>
+</html>

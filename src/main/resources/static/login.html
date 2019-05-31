@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> static/login.html </title>
+</head>
+<body>
+<h1> static static static</h1>
+
+<h2 th:text="#{login.username}">user_name</h2>
+
+    <form th:action="@{/user/login}" method="post">
+
+
+        用户名：<input type="text" name="userName"><br/>
+        密码：<input type="password" name="userpwd"><br/>
+
+        <input type="submit" th:value="提交"><br/>
+
+        <a th:href="@{/(l='zh_CN')}">中文</a><br/>
+        <a th:href="@{/(l='en_US')}">English</a><br/>
+
+
+        <p th:text="${msg}">msg</p><br/>
+
+        <br/>
+        <br/>
+        <br/>
+
+    </form>
+
+
+
+</body>
+</html>

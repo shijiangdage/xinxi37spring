@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <title> \templates\mingxixiugai.html  </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../static/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="../../static/css/bootstrap.css.map" />
+    <script type="text/javascript" src="../js/jquery-1.7.2.js" />
+    <script type="text/javascript" src="../js/jquery.validate.js"/>
+    <script th:src="@{/js/bootstrap.js}" src="../../static/js/bootstrap.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 href="http://127.0.0.1:8080/index3all " -->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件  -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+</head>
+</head>
+<div class="container" style="max-width: 333px;margin-top: 6px">
+
+
+    <div class="page-header" style="align-content: center;margin: 0 auto;">
+    </div>
+
+    <div class="well">
+
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://127.0.0.1:8080/mingxis/mingxiall"><strong>首页</strong></a>
+                </div>
+                <div>
+                    <p class="navbar-text">
+                        <a href="../index3input.html" th:href="@{/index3input}" class="btn-block">新增商品</a>
+                    </p>
+                </div>
+                <!--            <div>
+                                <p class="navbar-text">
+                                    <a href="../index3input.html" th:href="@{/index3input}" class="btn-block">新增商品test</a>
+                                </p>
+                            </div>-->
+                <div>
+                    <p class="navbar-text">
+                        <a href="http://127.0.0.1:8080/mingxis/mingxiall" >扩展本页</a>
+                    </p>
+                </div>
+
+            </div>
+        </nav>
+
+        <p class="page-header text-center" style="margin-top: 6px;font-weight: bolder;font-family: 微软雅黑;font-size: larger" >
+        信息更新：
+    </p>
+    <p>
+        <!--//<a href="#" th:href="@{/mingxis/mingxixinxi/{id}(id=${mingxi.id})}">{改}-->
+        <!--<form action="/index3input" th:action="@{/index3input}" method="post">-->
+        <form action="#" th:action="@{/mingxis/mingxixiugai}" th:object="${mingxione}" method="post">
+            <input type="hidden" th:value="*{id}" name="id">
+
+        <div class="form-group form-group-lg"> <label for="nameID">书名name</label>
+            <input type="text" th:value="*{name}" name="name" id="nameId" class="form-control">
+        </div>
+        <div class="form-group form-group-lg"> <label for="authorID">作者author</label>
+            <input type="text" th:value="*{author}" name="author" id="authorId" class="form-control">
+        </div>
+
+            <div class="form-group form-group-lg"> <label for="descriptuionID">描述descrip</label>
+              <input type="text" th:value="*{descriptuion}" name="descriptuion" id="descriptuionId" class="form-control">
+            </div>
+
+            <div class="form-group form-group-lg"> <label for="descriptuionID">时间logdate</label>
+                <input type="text" th:value="*{logdate}" name="logdate" id="logdateId" class="form-control">
+            </div>
+
+            <div class="form-group form-group-lg"> <label for="statusID">状态status</label>
+                <select type="text" name="status" id="statusId" class="form-control">
+                    <option value="0" th:selected="(*{status}==0)">正常0</option>
+                    <option value="1" th:selected="(*{status}==1)">在途1</option>
+                    <option value="2" th:selected="(*{status}==2)">提交2</option>
+                    <option value="3" th:selected="(*{status}==3)">受理3</option>
+                    <option value="9" th:selected="(*{status}==9)">未知9</option>
+                </select>
+            </div>
+
+        <p class="text-center">
+         <button type="submit" class="btn btn-primary">提交</button>
+    </p>
+    </form>
+    </p>
+    </div>
+</div>
+
+<div class="footer">
+    <h4>D:\IntelliJIDEA2018\ideawork2019\xinxi23sql\src\main\resources\templates\index3add.html</h4>
+</div>
+
+</body>
+</html>
+
+
+
+<!--
+<p><a href="http://127.0.0.1:8080/index3input/1" >测试本页</a> </p>
+<p><a href="#" class="btn btn-primary" th:href="">添加商品：</a> </p>
+-->
+
+<!--
+
+<div class="container" style="max-width: 666px;">
+    <div class="page-header" style="margin-top: 55px" >商品大全列表：</div>
+<p>
+    <span><a href="http://127.0.0.1:8080/index3input/1" >测试本页</a> </span>
+    <span>【<a href="#" class="btn-group-vertical">新增商品</a> 】</span>
+
+</p>
+
+    <table class="table table-bordered table-striped table-striped table-hover">
+        <caption class="text-center"><span> ${pageContext.request.contextPath}  </span></caption>
+        <thead>
+        <tr >
+            <th>序号even</th>
+            <th>序号index</th>
+            <th>序号count</th>
+            <th>序号size</th>
+            <th>ID</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>描述</th>
+            <th>状态status</th>
+            <th class="text-nowrap" > 状态转换</th>
+        </tr>
+        </thead>
+        <tbody>
+        &lt;!&ndash;<tr th:each="book:${bookList}">&ndash;&gt;
+        &lt;!&ndash;<tr th:each="book,iterStat:${bookList}" th:class="${iterStat.even}?'bg-sucess':'bg-danger'">&ndash;&gt;
+        <tr th:each="book,iterStat:${bookList}">
+            <td class="bg-warning"><span th:text="${iterStat.even}"> 000 </span></td>
+            <td><span th:text="${iterStat.index}"> 000 </span></td>
+            <td><span th:text="${iterStat.count}"> 000 </span></td>
+            <td><span th:text="${iterStat.size}"> 000 </span></td>
+            <td><span th:text="${book.id}">id</span></td>
+            <td><span th:text="${book.name}">名字name</span></td>
+            <td><span th:text="${book.author}">作者author</span></td>
+            <td><span th:text="${book.descriptuion}">descriptuion</span></td>
+            <td><span th:text="${book.status}">状态status</span></td>
+            <td><span th:switch="${book.status}">
+            <a href="#" th:href="@{/index6ione/{id}(id=${book.id})}">{改}
+          <span th:case="0">是0</span>
+          <span th:case="1">是1</span>
+          <span th:case="3">是3</span>
+          <span th:case="2">是2</span>
+          <span th:case="9">是9</span>
+          <span th:case="*">无知</span>
+            </a>
+        </span></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
+
+
+
+-->
+
+
+
+<!--
+
+@GetMapping("/index3input/{author}")
+//  get  http://127.0.0.1:8080/index3input/a
+public String index3input(@PathVariable String author,Model model){
+List<Book> bookList= null;
+    try {
+    bookList = bookService.findByAuthorContains(author);
+    } catch (Exception e) {
+    e.printStackTrace();
+    }
+    System.out.println(author+"&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;"+bookList.get(1).getName());
+    model.addAttribute("bookList",bookList);
+    return "index3input";
+    }
+
+-->
+
+
+<!--
+
+<tr>
+  <td th:colspan="1" href="http://127.0.0.1:8080/books6/1">
+    状态：
+  </td>
+  <td th:colspan="4">
+      <span th:switch="*{status}">
+      <span th:case="0">是0</span>
+      <span th:case="1">是1</span>
+      <span th:case="3">是3</span>
+      <span th:case="2">是2</span>
+      <span th:case="9">是9</span>
+      <span th:case="*">是?</span>
+      </span>
+  </td>
+</tr>
+
+<tr>
+  <td th:colspan="2" href="http://127.0.0.1:8080/books6/2">
+    "*{status==2}"unless判断非2就不显示：
+  </td>
+  <td th:colspan="3">
+    <div class="alert alert-danger" th:unless="*{status==2}">
+      <strong>unless判断非2</strong>
+    </div>
+  </td>
+</tr>
+
+<tr>
+  <td th:colspan="2" href="http://127.0.0.1:8080/books6/3">
+    "*{status==2}"if判断是2就显示：
+  </td>
+  <td th:colspan="3">
+    <div class="alert alert-warning" th:if="*{status==2}">
+      <strong>if判断是2</strong>
+    </div>
+  </td>
+</tr>
+
+-->

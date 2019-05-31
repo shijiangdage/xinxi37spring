@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>books.html </title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
+
+<body>
+  <body th:object="${book}">
+
+  <hr>
+
+  <div>
+    <p><strong>书名：</strong><span th:text="${book.name}">名字name</span></p>
+    <p><strong>作者：</strong><span th:text="${book.author}">作者author</span></p>
+    <p><strong>状态：</strong><span th:text="${book.status}">状态status</span></p>
+  </div>
+  <hr>
+
+  <div>
+    <p><strong>书名：</strong><span th:text="*{.name}">名字name</span></p>
+    <p><strong>作者：</strong><span th:text="*{.author}">作者author</span></p>
+    <p><strong>状态：</strong><span th:text="*{.status}">状态status</span></p>
+  </div>
+
+
+  <hr>
+  91   91   static\index91.html
+  <h3> D:\IntelliJIDEA2018\ideawork2019\xinxi21jpasql\src\main\resources\static\index91.html </h3>
+
+
+
+  </body>
+</html>

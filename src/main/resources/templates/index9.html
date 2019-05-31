@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <title>index99 books.html </title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+</head>
+
+
+<body th:object="${book}">
+
+
+<h1 layout:fragment="header">Messages : View all</h1>
+<div layout:fragment="content" class="container">
+  <!--<div class="pull-right">-->
+  <!--<a href="form.html" th:href="@{/(form)}">Create Message</a>-->
+  <!--</div>-->
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>书名</td>
+      <td>作者</td>
+      <td>描述</td>
+      <td>状态status</td>
+    </tr>
+    </thead>
+
+    <!--
+
+          <div>
+            <p><strong>书名：</strong><span th:text="*{name}">名字name</span></p>
+            <p><strong>作者：</strong><span th:text="*{author}">作者author</span></p>
+            <p><strong>描述：</strong><span th:text="*{descriptuion}">descriptuion</span></p>
+            <p><strong>状态：</strong><span th:text="*{status}">状态status</span></p>
+          </div>
+    -->
+
+
+    <tbody>
+    <tr>
+      <td><span th:text="*{id}">id</span></td>
+      <td><span th:text="*{name}">名字name</span></td>
+      <td><span th:text="*{author}">作者author</span></td>
+      <td><span th:text="*{descriptuion}">descriptuion</span></td>
+      <td><span th:text="*{status}">状态status</span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<hr>
+<!--
+
+  <div>
+    <p><strong>书名：</strong><span th:text="${book.name}">名字name</span></p>
+    <p><strong>作者：</strong><span th:text="${book.author}">作者author</span></p>
+    <p><strong>状态：</strong><span th:text="${book.status}">状态status</span></p>
+    <p><strong>状态：</strong><span th:text="${book.status}">状态status</span></p>
+  </div>
+
+-->
+<hr>
+
+<hr>
+templates\index99.html    D:\IntelliJIDEA2018\ideawork2019\xinxi23sql\src\main\resources\templates\index91.html
+<hr>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <title>index5list.html </title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" href="../static/css/bootstrap.min3.css" />
+  <script type="text/javascript" src="../js/jquery-1.7.2.js" />
+  <script type="text/javascript" src="../js/jquery.validate.js"/>
+  <link rel="stylesheet" href="../static/css/bootstrap-theme.css" />
+  <link rel="stylesheet" href="../static/css/bootstrap.css.map" />
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+  <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+</head>
+
+
+
+<body>
+<div class="container" style="max-width: 666px;">
+  <div class="page-header" style="margin-top: 55px">商品详页：</div>
+
+    <table class="table table-bordered table-striped table-striped table-hover">
+        <thead>
+        <tr>
+            <th colspan="4">
+                <span>" ${pageContext.request.contextPath} " </span>
+            </th>
+            <th colspan="5">
+                <span> ${pageContext.request.contextPath} </span>
+            </th>
+        </tr>
+        <tr>
+            <th>序号even</th>
+            <th>序号index</th>
+            <th>序号count</th>
+            <th>序号size</th>
+            <th>ID</th>
+            <th>书名</th>
+            <th>作者</th>
+            <th>描述</th>
+            <th href="http://127.0.0.1:8080/books5/1" >状态status</th>
+            <th href="http://127.0.0.1:8080/books5/1" >状态转换</th>
+        </tr>
+        </thead>
+
+    <tbody>
+
+    <!--<tr th:each="book:${bookList}">-->
+    <!--<tr th:each="book,iterStat:${bookList}" th:class="${iterStat.even}?'bg-sucess':'bg-danger'">-->
+    <tr th:each="book,iterStat:${bookList}">
+        <td class="bg-warning"><span th:text="${iterStat.even}"> 000 </span></td>
+        <td><span th:text="${iterStat.index}"> 000 </span></td>
+        <td><span th:text="${iterStat.count}"> 000 </span></td>
+        <td><span th:text="${iterStat.size}"> 000 </span></td>
+        <td><span th:text="${book.id}">id</span></td>
+        <td><span th:text="${book.name}">名字name</span></td>
+        <td><span th:text="${book.author}">作者author</span></td>
+        <td><span th:text="${book.descriptuion}">descriptuion</span></td>
+        <td><span th:text="${book.status}">状态status</span></td>
+        <td><span th:switch="${book.status}">
+          <span th:case="0">是0</span>
+          <span th:case="1">是1</span>
+          <span th:case="3">是3</span>
+          <span th:case="2">是2</span>
+          <span th:case="9">是9</span>
+          <span th:case="*">无知</span>
+        </span></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+
+    <!--
+
+    <tr>
+      <td th:colspan="1" href="http://127.0.0.1:8080/books6/1">
+        状态：
+      </td>
+      <td th:colspan="4">
+          <span th:switch="*{status}">
+          <span th:case="0">是0</span>
+          <span th:case="1">是1</span>
+          <span th:case="3">是3</span>
+          <span th:case="2">是2</span>
+          <span th:case="9">是9</span>
+          <span th:case="*">是?</span>
+          </span>
+      </td>
+    </tr>
+
+    <tr>
+      <td th:colspan="2" href="http://127.0.0.1:8080/books6/2">
+        "*{status==2}"unless判断非2就不显示：
+      </td>
+      <td th:colspan="3">
+        <div class="alert alert-danger" th:unless="*{status==2}">
+          <strong>unless判断非2</strong>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td th:colspan="2" href="http://127.0.0.1:8080/books6/3">
+        "*{status==2}"if判断是2就显示：
+      </td>
+      <td th:colspan="3">
+        <div class="alert alert-warning" th:if="*{status==2}">
+          <strong>if判断是2</strong>
+        </div>
+      </td>
+    </tr>
+
+-->
